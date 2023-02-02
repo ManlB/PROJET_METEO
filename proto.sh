@@ -352,6 +352,32 @@ if [ $compte_tri -gt 1 ] ; then
 fi
 
 
+# --------------------- FILTRAGE GEOGRAPHIQUE ------------------------ #
+france(){
+    awk -F ';' '$15 < 96000 { print }' meteoData.csv > france.csv
+}
+
+guyane(){
+    awk -F ';' '$15 >= 97300 && $15 <= 97399 { print }' meteoData.csv > guyane.csv
+}
+
+stPierreMiq(){
+    awk -F ';' '$15 >= 97300 && $15 <= 97399 { print }' meteoData.csv > stPierreMiq.csv
+}
+
+antilles(){
+    awk -F ';' '$15 >= 97300 && $15 <= 97399 { print }' meteoData.csv > antilles.csv
+}
+
+oceanI(){
+    awk -F ';' '{if( $10 ~ /^-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?$/ && $10 ~ /^([-+]?[0-9.]+),([-+]?[0-9.]+)/ )
+                {if( ($10 < 0 && $10  < 40) && ($11 > 50 && $11 < 95) ) { print }}}' meteoData.csv > oceanI.csv
+}
+
+antarctique(){
+    awk -F ';' '{if( $10 ~ /^-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?$/ && $10 ~ /^([-+]?[0-9.]+),([-+]?[0-9.]+)/ )
+                {if( ($10 <= 70 && $10  >= 80) && ($11 >= 0 && $11 <= 100) ) { print }}}' meteoData.csv > oceanI.csv
+}
 
    #*********// TRAITEMENT DES OPTIONS \\ *********#
 
@@ -405,6 +431,7 @@ fi
 if $opt_A; then
 
     echo "L'option A a été utilisée "
+    antilles
 
 fi
 
@@ -412,6 +439,7 @@ fi
 if $opt_F ; then
 
     echo "L'option F a été utilisée "
+    france
 
 fi
 
@@ -419,6 +447,7 @@ fi
 if $opt_G ; then
 
     echo "L'option G a été utilisée "
+    guyane
 
 fi
 
@@ -426,6 +455,7 @@ fi
 if $opt_S ; then
 
     echo "L'option S a été utilisée "
+    stPierreMiq
 
 fi
 
@@ -433,6 +463,7 @@ fi
 if $opt_O ; then
 
     echo "L'option O a été utilisée "
+    oceanI
 
 fi
 
@@ -440,6 +471,7 @@ fi
 if $opt_Q; then
 
     echo "L'option Q a été utilisée "
+    antarctique
 
 fi
 
