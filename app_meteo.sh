@@ -312,8 +312,8 @@ oceanI(){
 
 antarctique(){
     fich=$1
-    awk -F ';' '$10 ~ /^-70/ || $10 ~ /^-80/ { split($10, coords, ";"); if (coords[1] >= -70 && coords[1] <= -80 && coords[2] >= -15 && coords[2] <= 150) {
-    print }'  "$fich" > antarctique.csv
+    awk -F ';' '{if( $10 ~ /^-?[0-9]+(\.[0-9]+)?,-?[0-9]+(\.[0-9]+)?$/ && $10 ~ /^([-+]?[0-9.]+),([-+]?[0-9.]+)/ )
+                {if( ($10 < 80 && $10  > 70) && ($11 > 0 && $11 < 100) ) { print }}}'  "$fich" > antarctique.csv
 }
 
 
