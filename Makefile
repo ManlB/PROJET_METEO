@@ -19,4 +19,4 @@ exe : ./appMeteo.sh
 all : &(exe)
 
 clean :
-	$(RM) $EXEC)
+	$(rm) $(exe)
