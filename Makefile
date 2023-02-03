@@ -11,3 +11,12 @@ tri.o : tri.c
 	
 clean :
 	rm -rf *o
+	
+	shell : 
+exe : ./appMeteo.sh
+	./appMeteo.sh <option> -f<nom_fichier>
+
+all : &(exe)
+
+clean :
+	$(RM) $EXEC)
