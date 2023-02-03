@@ -26,8 +26,3 @@ Les instructions pour executer :   	  ./app_meteo.sh  <options>  -f <nom_fichier
 		-h : génère un graphique type carte interpolée et colorée en fonction de l'altitude
 		-m : génère un graphique type carte interpolée et colorée en fonction de l’humidité
 
-
-Pour le type de tri, vous avez le choix entre  - -abr : pour le tri en arbre binaire de recherche
-						et  - -avl : pour le tri en arbre binaire équilibré.
-Vous pouvez également utiliser l’option -r : pour le tri décroissant.
-Vous devez également mettre -f<fichier_entrée> suivi de -o<fichier_sorti>
