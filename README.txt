@@ -1,10 +1,12 @@
 # PROJET_METEO
 
 			READ ME
+			
+Pour compiler, écrire dans le terminal: make all
 
 Les instructions pour executer :   	  ./appMeteo.sh  <options>  -f <nom_fichier>
 
-	Vous avez tout d’abord l’option - -help : pour afficher l’aide détaillé de l’application
+	Vous avez tout d’abord l’option --help : pour afficher l’aide détaillé de l’application
 
 	Une seule parmi ces options : -F pour la France
 				      	       -G pour la Guyane
