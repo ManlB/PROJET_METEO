@@ -6,8 +6,8 @@ int main(int argc, char *argv[]) {
     char ligne[1024];
     Arbre *arb = NULL;
 
-    if (argc != 3) {
-        printf("Usage: %s <fichier_entree> <fichier_sortie>\n", argv[0]);
+    if (argc != 4) {
+        printf("Usage: %s <fichier_entree> <fichier_sortie> --avl\n", argv[0]);
         return 1;
     }
 
