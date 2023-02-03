@@ -16,7 +16,7 @@ clean :
 exe : ./appMeteo.sh
 	./appMeteo.sh <option> -f<nom_fichier>
 
-all : &(exe)
+all : $(exe)
 
 clean :
 	$(rm) $(exe)
